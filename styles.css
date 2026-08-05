@@ -305,15 +305,27 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.framework-card::before {
-  content: "";
-  display: block;
+.framework-card > i {
+  display: grid;
+  place-items: center;
   width: 54px;
   height: 54px;
+  flex: 0 0 54px;
   border-radius: 18px;
   margin-bottom: 22px;
   border: 1px solid rgba(199,120,255,.45);
   background: radial-gradient(circle at center, rgba(127,16,208,.32), rgba(127,16,208,.08));
+  color: #d49cff;
+}
+.framework-card > i svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .framework-card b {
   font-size: 30px;
