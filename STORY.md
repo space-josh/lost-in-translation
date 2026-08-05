@@ -65,100 +65,61 @@ Lost in Translation
 
 Purpose
 
-Earn attention.
+Earn attention and establish the mission.
 
-This is not a teaching slide.
+Teaching Point
 
-It establishes mood.
+Technical excellence deserves equal excellence in communication.
 
 Visual
 
-Earth orbit.
-
-Mission Alpha spacecraft.
-
-Commander Acorn optional.
-
-Large typography.
-
-No framework.
-
-No UI clutter.
-
-Audience Feeling
-
-Curiosity.
-
-Scale.
-
-"This looks different."
+Earth orbit. Mission Alpha spacecraft. Large typography. No framework.
 
 ---
 
 # Scene 2
 
-Observation
+Incoming Transmission
 
 Purpose
 
-Commander Acorn notices a technical signal.
-
-Nothing has been proposed.
-
-Nothing has been prioritized.
-
-Only a signal has been observed.
-
-Visual
-
-Mission Control.
-
-Commander Acorn.
-
-Engineering displays.
-
-The signal is subtle.
+Introduce a real technical signal without shared context.
 
 Teaching Point
 
-Good work begins with observation.
-
-Not solutions.
-
----
-
-# Scene 3
-
-Please Clarify
-
-Purpose
-
-Demonstrate what happens when a signal reaches another team
-without context.
-
-Teaching Point
-
-People are not resisting.
-
-They simply do not understand.
+A signal can be accurate and still be difficult for others to interpret.
 
 Key Phrase
 
 Please clarify.
 
-Audience Feeling
+---
 
-Recognition.
+# Scene 3
+
+The Translation
+
+Purpose
+
+Show the same work before and after translation.
+
+Teaching Point
+
+The work did not change. The translation did.
+
+Key Phrase
+
+Clear translation makes useful discussion possible.
 
 ---
 
 # Scene 4
 
-Mission Control
+Every Role Sees a Signal
 
 Purpose
 
-Show how five different disciplines interpret the same signal.
+Show how five disciplines notice different parts of the same opportunity.
 
 Roles
 
@@ -174,84 +135,63 @@ Product Manager
 
 Teaching Point
 
-Different perspectives are healthy.
-
-Shared understanding is the goal.
-
-Commander Acorn
-
-Observes.
-
-Does not lecture.
+Different perspectives are healthy. Shared understanding is the goal.
 
 ---
 
 # Scene 5
 
-Signal
+Merchandising, Redefined
 
 Purpose
 
-Everything begins with a signal.
-
-Not with Product.
-
-Not with solutions.
-
-Not with roadmaps.
+Make limited launch capacity visible and connect translation to informed decisions.
 
 Teaching Point
 
-If the signal is unclear,
-everything downstream suffers.
+Merchandising helps people understand what should change on the Mission Manifest and why.
 
 Visual
 
-Commander Acorn studying mission telemetry.
-
-Engineering environment.
-
-Calm.
-
-Focused.
+A finite launch container, manifested payloads and highlighted remaining capacity.
 
 ---
 
 # Scene 6
 
-Mission Manifest
+Clarify the Signal
 
 Purpose
 
-Organizations cannot launch everything.
+Teach the questions that tighten an observed signal before translation.
 
-Capacity is limited.
+Questions
 
-The challenge is choosing payload.
+What is the real need?
+
+What outcome are we trying to achieve?
+
+Who needs to understand it?
+
+What will it take to achieve that outcome?
+
+How will we create opportunities for understanding?
 
 Teaching Point
 
-Merchandising helps improve the manifest.
+Clarity begins with curiosity.
 
-It is not about changing reality.
+These questions prepare the audience for the Four Ps without naming the framework early.
 
-It is about improving understanding.
+Commander Acorn
 
-Visual
-
-Mission manifest.
-
-Spacecraft.
-
-Payload cards.
-
-Launch constraints.
+Investigates at Mission Control. Competent, focused and curious.
 
 ---
 
 # Scene 7
 
-The Four Ps Begin With A Signal
+The Four Ps Begin With a Signal
 
 Purpose
 
@@ -279,277 +219,183 @@ Promotion
 
 Teaching Point
 
-Without a problem,
-there is nothing to merchandise.
-
-Visual
-
-Mission Control UI.
-
-Signal card.
-
-Four structured cards.
-
-Background uses orbital engineering imagery.
+Problem is the foundation. Without a signal, there is nothing to merchandise.
 
 ---
 
 # Scene 8
 
-Docking Sequence
+Product
 
 Purpose
 
-Translate technical work into organizational value.
-
-Signal
-
-↓
-
-Implementation
-
-↓
-
-Outcome
-
-↓
-
-Impact
-
-↓
-
-Value
+Separate the implementation from the outcome being offered.
 
 Teaching Point
 
-Translation creates alignment.
+The product is often what your work makes possible, not what gets built.
 
 Visual
 
-Production docking artwork.
-
-Reuse consistently.
-
-Never redraw differently.
+Use the canonical Docking Sequence artwork.
 
 ---
 
 # Scene 9
 
-Hardware Integrations
+Place
 
 Purpose
 
-Walk through a real Integrate example.
-
-The audience already understands the framework.
-
-Now they watch it applied.
+Translate the same signal for different audiences.
 
 Teaching Point
 
-Merchandising changes the conversation.
-
-Not the engineering.
+Same truth. Different audience. Different translation.
 
 ---
 
 # Scene 10
 
-Docking Sequence
+Price
 
 Purpose
 
-Return to the docking metaphor.
-
-The audience now understands it.
-
-This scene reinforces learning.
+Make the requested investment and tradeoff visible.
 
 Teaching Point
 
-Reuse builds recognition.
-
-Visual
-
-Same docking artwork.
-
-Same UI.
+A useful request makes cost, timing and expected return understandable.
 
 ---
 
 # Scene 11
 
-Momentum
+Promotion
 
 Purpose
 
-Ideas gain momentum intentionally.
-
-Not accidentally.
+Show how repeated opportunities for understanding create Momentum.
 
 Teaching Point
 
-Momentum is earned through:
-
-clarity
-
-repetition
-
-shared understanding
-
-Never volume.
+Momentum is earned through clarity and repetition, not volume.
 
 ---
 
 # Scene 12
 
-Translation
+Translation Toolkit
 
 Purpose
 
-Compare poor requests with translated requests.
+Give the audience practical questions they can use immediately.
 
 Teaching Point
 
-Translation enables useful discussion.
-
-Agreement is still optional.
+The toolkit is thinking made visible, not paperwork.
 
 ---
 
 # Scene 13
 
-From Request To Useful Discussion
+From Request to Useful Discussion
 
 Purpose
 
-Demonstrate the before/after.
+Demonstrate the before and after.
 
 Teaching Point
 
-Clear translation creates better conversations.
-
-Key Phrase
-
-Clear translation does not guarantee agreement.
-
-It makes useful discussion possible.
+Clear translation does not guarantee agreement. It makes useful discussion possible.
 
 ---
 
 # Scene 14
 
-Momentum
+Mission Simulation
 
 Purpose
 
-Reinforce repetition.
+Invite participants to bring one real signal into the workshop.
 
 Teaching Point
 
-Important ideas rarely succeed after one conversation.
+Choose one signal and merchandise it for one audience.
 
-Repeat.
+Commander Acorn
 
-Refine.
-
-Reconnect.
-
-Momentum is earned through clarity and repetition,
-not volume.
+Becomes the facilitator.
 
 ---
 
 # Scene 15
 
-Mission Simulation
+Mission Canvas
 
 Purpose
 
-Workshop.
-
-Participants work in teams.
-
-Commander Acorn becomes facilitator.
-
-Mission Canvas
-
-Signal
-
-Product
-
-Place
-
-Price
-
-Promotion
-
-Evidence
-
-Ask
+Guide teams through Signal, Product, Place, Price, Promotion, Evidence and Ask.
 
 Teaching Point
 
-Practice.
+Practice the translation on real work.
 
-Not theory.
+Visual
 
-Commander Acorn
+Full Mission Control environment.
 
-Holding tablet.
+Seven structured canvas cards with purple line iconography.
 
-Standing beside the prompts.
+Commander Acorn facilitates beside cycling clarification prompts.
 
-Supportive.
-
-Never dominant.
+Five-minute Mission Simulation timer remains interactive.
 
 ---
 
 # Scene 16
 
-Mission Debrief
+Crew Debrief
 
 Purpose
 
-Bring everyone back together.
+Bring the room together to discuss what changed during translation.
 
-Discuss.
+Teaching Point
 
-Reflect.
-
-Compare.
-
-Commander Acorn
-
-Present.
-
-Listening.
+Discussion, not grading.
 
 ---
 
 # Scene 17
 
-Closing Challenge
+The Shared Language
 
 Purpose
 
-Leave one memorable question.
+Connect Signal, Translation, Understanding and Momentum.
 
-Nothing else.
-
-No summary bullets.
-
-No thank-you slide.
-
-Question
+Closing Question
 
 What mission are you asking people to approve?
 
 Pause.
 
-End.
+---
+
+# Scene 18
+
+Mission Coda
+
+Purpose
+
+End with a calm visual callback to the opening mission.
+
+Key Phrase
+
+Every mission begins with someone noticing a signal. Make sure the rest of us can see it too.
+
+No summary bullets. No thank-you slide.
 
 ---
 
@@ -600,4 +446,3 @@ Shared understanding creates better decisions.
 Better decisions create momentum.
 
 That is the mission.
-
