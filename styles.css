@@ -980,3 +980,19 @@ main > .scene:nth-of-type(14) {
   box-shadow: 0 14px 32px rgba(127,16,208,.34), inset 0 1px 0 rgba(255,255,255,.16);
   font-weight: 700;
 }
+
+/* Light-mode counterpart to the Mission Control grid */
+main > .scene:is(
+  :nth-of-type(4),
+  :nth-of-type(9),
+  :nth-of-type(10),
+  :nth-of-type(12),
+  :nth-of-type(13),
+  :nth-of-type(16)
+) {
+  background:
+    linear-gradient(rgba(92,68,108,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92,68,108,.028) 1px, transparent 1px),
+    #f7f5f0;
+  background-size: 48px 48px, 48px 48px, auto;
+}
