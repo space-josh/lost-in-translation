@@ -2,7 +2,7 @@
 
 Offline HTML presentation.
 
-Open `index.html` in Chrome or Edge. Use `F` for fullscreen, right arrow/space to advance, and left arrow to go back.
+Open `index.html` in Chrome or Edge. Use `F` for fullscreen, right arrow/space to advance through builds, and left arrow to go back. Use Shift + right/left arrow to jump directly between fully built scenes.
 
 For reliable local serving:
 

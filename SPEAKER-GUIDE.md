@@ -5,6 +5,7 @@ Target duration: 25–30 minutes. Keynote content: 17–19 minutes. Workshop and
 ## Controls
 - Right arrow / Space: reveal or advance
 - Left arrow: go back
+- Shift + Right/Left arrow: jump to the next/previous fully built scene
 - F: fullscreen
 - Click: advance (except timer button)
 
