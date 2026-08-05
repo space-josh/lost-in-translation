@@ -376,3 +376,22 @@
 
 /* Retire rough crop artifacts if they are referenced anywhere */
 img[src$="acorn-inspecting-crop.png"], img[src$="acorn-standing.png"] { object-fit: contain !important; background: transparent !important; }
+
+/* Scene 4: align the opportunity marker with the radar bullseye */
+.radar-target {
+  position: relative;
+  width: 520px;
+  aspect-ratio: 1;
+}
+.radar-target .rings,
+.radar-target .sweep {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.radar-target .center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateY(3px);
+}
