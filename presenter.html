@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lost in Translation — Presenter View</title>
+  <link rel="stylesheet" href="presenter.css">
+</head>
+<body>
+  <div class="presenter-shell">
+    <header class="presenter-header">
+      <div class="brand-lockup">
+        <img src="assets/integrate-wordmark.svg" alt="Integrate">
+        <span>Presenter View</span>
+      </div>
+      <div class="header-status">
+        <span class="connection waiting" id="connection"><i></i> Connecting to audience</span>
+        <div class="elapsed">
+          <span>Elapsed</span>
+          <b id="elapsed">00:00</b>
+          <button id="clockToggle" type="button">Start</button>
+          <button class="icon-button" id="clockReset" type="button" aria-label="Reset elapsed time" title="Reset elapsed time">↺</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="presenter-grid">
+      <section class="current-column" aria-labelledby="currentLabel">
+        <div class="section-heading">
+          <div>
+            <span id="phase">MISSION BRIEFING</span>
+            <h1 id="currentLabel">Current scene</h1>
+          </div>
+          <div class="position">
+            <b id="scenePosition">01 / 18</b>
+            <span id="buildPosition">Build 0 / 0</span>
+          </div>
+        </div>
+
+        <div class="preview-frame current-preview">
+          <iframe id="currentPreview" src="index.html?preview=1" title="Current scene preview" tabindex="-1"></iframe>
+        </div>
+
+        <div class="transport" aria-label="Presentation controls">
+          <button type="button" id="previousScene" title="Previous scene (Shift + Left)"><span>⇤</span> Scene</button>
+          <button type="button" class="primary-control" id="previousBuild" title="Previous build (Left)"><span>←</span> Previous</button>
+          <button type="button" class="primary-control next-control" id="nextBuild" title="Next build (Right or Space)">Next <span>→</span></button>
+          <button type="button" id="nextScene" title="Next scene (Shift + Right)">Scene <span>⇥</span></button>
+        </div>
+
+        <p class="keyboard-help"><kbd>←</kbd><kbd>→</kbd> build <i></i> <kbd>Shift</kbd> + <kbd>←</kbd><kbd>→</kbd> scene <i></i> <kbd>Space</kbd> advance</p>
+      </section>
+
+      <aside class="guide-column" aria-label="Presenter guidance">
+        <section class="next-panel">
+          <div class="panel-heading">
+            <span>Up next</span>
+            <b id="nextTitle">Incoming Transmission</b>
+          </div>
+          <div class="preview-frame next-preview" id="nextPreviewFrame">
+            <iframe id="nextPreview" src="index.html?preview=1" title="Next scene preview" tabindex="-1"></iframe>
+            <div class="mission-complete" id="missionComplete">Mission complete</div>
+          </div>
+        </section>
+
+        <section class="notes-panel" aria-labelledby="notesTitle">
+          <div class="notes-heading">
+            <span>Speaker notes</span>
+            <h2 id="notesTitle">Lost in Translation</h2>
+            <p id="notesPurpose"></p>
+          </div>
+          <div class="notes-content" id="notesContent"></div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="speaker-notes.js"></script>
+  <script src="presenter.js"></script>
+</body>
+</html>
