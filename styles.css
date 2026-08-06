@@ -1181,3 +1181,15 @@ main > .scene:is(
   font-size: 20px;
   line-height: 1.2;
 }
+
+/* Center the fixed canvas explicitly, including inside presenter preview iframes. */
+body {
+  display: block;
+  position: relative;
+}
+.stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(var(--stage-scale, 1));
+}
