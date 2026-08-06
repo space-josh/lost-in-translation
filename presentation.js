@@ -1,4 +1,6 @@
 const scenes = [...document.querySelectorAll('.scene')];
+const stage = document.getElementById('stage');
+const stageSize = { width: 1600, height: 900 };
 const params = new URLSearchParams(location.search);
 const isPreview = params.has('preview');
 const requested = Number.parseInt(location.hash.replace('#', ''), 10);
@@ -13,6 +15,18 @@ const syncChannel = !isPreview && 'BroadcastChannel' in window
   ? new BroadcastChannel('lost-in-translation-presenter')
   : null;
 const processedCommandIds = new Set();
+
+function fitStage() {
+  const scale = Math.max(0.01, Math.min(
+    window.innerWidth / stageSize.width,
+    window.innerHeight / stageSize.height,
+  ));
+  stage.style.setProperty('--stage-scale', scale);
+}
+
+window.addEventListener('resize', fitStage, { passive: true });
+window.visualViewport?.addEventListener('resize', fitStage, { passive: true });
+fitStage();
 
 function fragments() {
   return [...scenes[idx].querySelectorAll('.fragment')];
@@ -174,7 +188,7 @@ if (isPreview) {
     if (event.key.toLowerCase() === 'p') openPresenter();
   });
 
-  document.getElementById('stage').addEventListener('click', (event) => {
+  stage.addEventListener('click', (event) => {
     if (event.target.tagName !== 'BUTTON') next();
   });
 }
