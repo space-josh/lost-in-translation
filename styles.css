@@ -21,6 +21,13 @@
 .acorn-side img { width: 100%; height: 210px; object-fit: cover; display: block; filter: saturate(.9) brightness(.86); }
 .acorn-side b { display: block; color: #d49cff; font-size: 16px; letter-spacing: .08em; text-transform: uppercase; padding: 22px 22px 8px; }
 .acorn-side span { display: block; font-size: 22px; line-height: 1.28; color: rgba(255,255,255,.78); padding: 0 22px 22px; }
+.acorn-problem-example img { height: 142px; object-position: center 38%; }
+.acorn-problem-copy { padding: 18px 20px 20px; }
+.acorn-problem-copy > b { padding: 0 0 14px; font-size: 13px; line-height: 1.2; }
+.acorn-problem-copy > div { padding: 12px 0 0; border-top: 1px solid rgba(255,255,255,.13); }
+.acorn-problem-copy > div + div { margin-top: 12px; }
+.acorn-problem-copy span { padding: 0; color: #d49cff; font-size: 10px; font-weight: 700; line-height: 1.2; letter-spacing: .1em; }
+.acorn-problem-copy p { margin: 6px 0 0; color: rgba(255,255,255,.88); font-size: 15px; line-height: 1.28; }
 .final-acorn { position: absolute; right: 6%; bottom: 7%; width: 330px; height: 330px; object-fit: cover; border-radius: 24px; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 20px 80px rgba(0,0,0,.35); opacity: .86; }
 
 /* r3 targeted polish */
@@ -275,6 +282,9 @@
 .before-after .panel-dark .label,
 .before-after .panel-dark span { color: #d7a1ff; }
 .before-after .panel-dark .good { color: #176746; background: #dff7ed; }
+.translated-request .request-build { display: grid; gap: 10px; margin: 18px 0 20px; }
+.translated-request .request-build > span { display: block; padding: 9px 0 9px 16px; border-left: 2px solid rgba(78,216,161,.55); color: rgba(255,255,255,.94) !important; font-size: 20px; line-height: 1.25; }
+.translated-request .request-build small { display: block; margin-bottom: 4px; color: #78f2bf; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
 
 .scene-fourp .scene-title { z-index: 3; }
 .scene-fourp .fourp { padding-top: 115px; }

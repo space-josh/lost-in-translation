@@ -116,6 +116,8 @@ window.SPEAKER_NOTES = [
     beats: [
       'This can produce a clear two-sentence message. It is not a request for more paperwork.',
       'Use the questions to make the signal, impact, outcome, investment, evidence, and next step visible.',
+      'Use Commander Acorn’s problem worksheet as the smallest useful example: first capture the observed signal, then state why it matters.',
+      'The complete request comes together on the next scene; do not solve the entire worksheet here.',
     ],
     prompt: 'Can someone outside your discipline explain why this matters?',
     emphasis: 'This is thinking made visible.',
@@ -125,7 +127,8 @@ window.SPEAKER_NOTES = [
     purpose: 'Demonstrate the before and after.',
     beats: [
       'The translated request is written for Mission Planning.',
-      'It makes the signal, schedule risk, proposed investment, timing, and outcome discussable.',
+      'Build the request from the worksheet in three clauses: signal and impact, investment and timing, then outcome.',
+      'Only after those parts are visible does the request become ready for discussion.',
       'Merchandising does not guarantee acceptance. It improves the discussion.',
     ],
     prompt: '“Would we use exactly these words with the engineering team doing the redesign?”',
