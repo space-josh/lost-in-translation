@@ -15,6 +15,8 @@ const syncChannel = !isPreview && 'BroadcastChannel' in window
   ? new BroadcastChannel('lost-in-translation-presenter')
   : null;
 const processedCommandIds = new Set();
+let presenterWindow = null;
+let presenterPort = null;
 
 function fitStage() {
   const scale = Math.max(0.01, Math.min(
@@ -49,6 +51,11 @@ function state() {
 function publishState() {
   if (isPreview) return;
   const currentState = state();
+  try {
+    presenterPort?.postMessage(currentState);
+  } catch (_) {
+    presenterPort = null;
+  }
   syncChannel?.postMessage(currentState);
   try {
     localStorage.setItem('lost-in-translation-state', JSON.stringify({
@@ -136,8 +143,31 @@ function runCommand(command) {
 }
 
 function openPresenter() {
-  const presenter = window.open('presenter.html', 'lost-in-translation-presenter');
-  presenter?.focus();
+  presenterWindow = window.open('presenter.html', 'lost-in-translation-presenter');
+  presenterWindow?.focus();
+  connectPresenter(presenterWindow);
+}
+
+function connectPresenter(targetWindow) {
+  if (!targetWindow || targetWindow.closed || !('MessageChannel' in window)) return;
+
+  presenterPort?.close();
+  const connection = new MessageChannel();
+  presenterPort = connection.port1;
+  presenterPort.addEventListener('message', (event) => runCommand(event.data));
+  presenterPort.start();
+
+  try {
+    targetWindow.postMessage(
+      { type: 'lost-in-translation-presenter-connect' },
+      '*',
+      [connection.port2],
+    );
+    presenterPort.postMessage(state());
+  } catch (_) {
+    presenterPort.close();
+    presenterPort = null;
+  }
 }
 
 window.presentationController = {
@@ -155,6 +185,12 @@ if (isPreview) {
     render({ publish: false });
   });
 } else {
+  window.addEventListener('message', (event) => {
+    if (event.data?.type !== 'lost-in-translation-presenter-ready') return;
+    presenterWindow = event.source;
+    connectPresenter(presenterWindow);
+  });
+
   syncChannel?.addEventListener('message', (event) => runCommand(event.data));
   window.addEventListener('storage', (event) => {
     if (event.key !== 'lost-in-translation-command' || !event.newValue) return;

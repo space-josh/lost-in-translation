@@ -2,6 +2,7 @@ const notes = window.SPEAKER_NOTES || [];
 const channel = 'BroadcastChannel' in window
   ? new BroadcastChannel('lost-in-translation-presenter')
   : null;
+let audiencePort = null;
 
 const elements = {
   connection: document.getElementById('connection'),
@@ -48,6 +49,15 @@ function sendCommand(action, detail = {}) {
     sentAt: Date.now(),
     commandId: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
   };
+  if (audiencePort) {
+    try {
+      audiencePort.postMessage(command);
+      return;
+    } catch (_) {
+      audiencePort = null;
+    }
+  }
+
   const directController = audienceController();
   if (directController) {
     directController.runCommand(command);
@@ -181,6 +191,15 @@ function resetClock() {
 }
 
 channel?.addEventListener('message', (event) => acceptState(event.data));
+window.addEventListener('message', (event) => {
+  if (event.data?.type !== 'lost-in-translation-presenter-connect' || !event.ports[0]) return;
+
+  audiencePort?.close();
+  audiencePort = event.ports[0];
+  audiencePort.addEventListener('message', (portEvent) => acceptState(portEvent.data));
+  audiencePort.start();
+  sendCommand('request-state');
+});
 window.addEventListener('storage', (event) => {
   if (event.key !== 'lost-in-translation-state' || !event.newValue) return;
   try {
@@ -230,6 +249,11 @@ try {
 
 const directController = audienceController();
 if (directController) acceptState(directController.getState());
+try {
+  window.opener?.postMessage({ type: 'lost-in-translation-presenter-ready' }, '*');
+} catch (_) {
+  // The other synchronization paths can still connect the windows.
+}
 sendCommand('request-state');
 setInterval(() => {
   sendCommand('request-state');

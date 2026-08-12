@@ -4,7 +4,7 @@ Offline HTML presentation.
 
 Open `index.html` in Chrome or Edge. Use `F` for fullscreen, right arrow/space to advance through builds, and left arrow to go back. Use Shift + right/left arrow to jump directly between fully built scenes.
 
-Press `P` from the audience presentation to open the synchronized Presenter View. Keep Presenter View on the laptop, move the audience window to the external display, and share only the audience window in Zoom or Google Meet. Navigation works from either window. Presenter View includes current and next scene previews, speaker notes, audience prompts, and an elapsed-time clock.
+Press `P` from the audience presentation to open the synchronized Presenter View. Keep Presenter View on the laptop, move the audience window to the external display, and share only the audience window in Zoom or Google Meet. You can detach either tab into its own window and make the audience window fullscreen; navigation remains synchronized from either window. Presenter View includes current and next scene previews, speaker notes, audience prompts, and an elapsed-time clock.
 
 For reliable local serving:
 
