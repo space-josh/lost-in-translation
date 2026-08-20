@@ -18,4 +18,4 @@ Then open `http://localhost:8000`.
 
 Scenes are composed on a fixed 1600 × 900 canvas. `presentation.js` scales the complete stage to fit the available viewport while preserving its 16:9 aspect ratio, so audience windows and presenter previews use the same composition. Define scene dimensions against that logical canvas; do not add viewport-width breakpoints that rearrange presentation content.
 
-The presentation targets PPMonument and falls back to Inter/Arial if PPMonument is not installed. Place licensed PPMonument webfont files in `assets/fonts/` and add `@font-face` declarations in `styles.css` for an embedded build.
+The presentation embeds the Brand Lab type system for offline use: Clash Grotesk for display, Spline Sans for body copy, and Spline Sans Mono for labels and telemetry. The files live in `assets/fonts/` and are declared in both the audience and presenter stylesheets.

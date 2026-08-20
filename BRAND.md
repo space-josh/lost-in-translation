@@ -92,44 +92,53 @@ Stripe
 
 # Color Palette
 
-Primary
+Use the Brand Lab Visual Essence tokens in `styles.css` as the source of truth.
 
-Mission Purple
-#7F10D0
+Core surfaces
 
-Ink
-#0D1815
+- Ink 900 — #131216
+- Ink 700 — #1D1C22
+- Ink 500 — #2A2830
+- Cream 50 — #F7F2EA
+- Cream 100 — #EFE6D5
+- Cream 200 — #E6D9C1
 
-White
-#FFFFFF
+Brand accent
 
-Supporting neutrals
+- Purple 700 — #561A8B
+- Purple 500 — #7B25C6
+- Purple 300 — #9B59D4
+- Purple 100 — #D7BEEE
 
-Dark graphite
+Utility accents
 
-Warm gray
+- Terracotta 500 — #D86D4A
+- Terracotta 300 — #E19075
+- Sage — #A9A996
+- Rust — #692818
+- Olive — #59564A
 
-Soft panel white
-
-Use color sparingly.
-
-Purple indicates:
-
-Signal
-
-Progress
-
-Understanding
-
-Momentum
+Use purple sparingly for signal, progress, understanding, and momentum. Use
+terracotta for incomplete or caution states. Use sage and olive for ready or
+successful states. Do not introduce alternate blue, green, or amber accents.
 
 ---
 
 # Typography
 
-Primary
+Display
 
-PP Monument
+Clash Grotesk
+
+Body
+
+Spline Sans
+
+Labels and telemetry
+
+Spline Sans Mono
+
+All three typefaces are self-hosted in `assets/fonts/` for offline use.
 
 Hierarchy is large.
 

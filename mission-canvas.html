@@ -1,1 +1,215 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Mission Canvas</title><style>body{font-family:Arial;margin:40px;color:#0D1815}h1{font-size:36px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.box{border:2px solid #0D1815;min-height:150px;padding:16px}.box h2{font-size:16px;color:#7F10D0;margin:0 0 10px}.wide{grid-column:span 2}@media print{body{margin:20px}}</style></head><body><h1>Lost in Translation: Mission Canvas</h1><div class="grid"><div class="box"><h2>SIGNAL</h2>What have you noticed?</div><div class="box"><h2>PRODUCT</h2>What outcome are you offering?</div><div class="box"><h2>PLACE</h2>Who needs to understand it?</div><div class="box"><h2>PRICE</h2>What investment or tradeoff?</div><div class="box"><h2>PROMOTION</h2>Where should this idea appear again?</div><div class="box"><h2>EVIDENCE</h2>What do you know, infer, or still need to validate?</div><div class="box wide"><h2>ASK</h2>What should happen next?</div></div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lost in Translation - Mission Canvas</title>
+  <style>
+    @font-face { font-family: "Clash Grotesk"; src: url("assets/fonts/ClashGrotesk-Variable.woff2") format("woff2"); font-weight: 200 700; font-display: swap; }
+    @font-face { font-family: "Spline Sans"; src: url("assets/fonts/SplineSans-Variable.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+    @font-face { font-family: "Spline Sans Mono"; src: url("assets/fonts/SplineSansMono-Variable.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+
+    :root {
+      --ink: #131216;
+      --ink-soft: #2A2830;
+      --mauve: #615B65;
+      --mauve-light: #A6A0AB;
+      --cream: #F7F2EA;
+      --cream-panel: #EFE6D5;
+      --cream-line: #C3B190;
+      --purple: #7B25C6;
+      --purple-dark: #561A8B;
+      --purple-light: #D7BEEE;
+    }
+
+    * { box-sizing: border-box; }
+    @page { size: Letter portrait; margin: 0; }
+
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      background: #d8d3ca;
+      color: var(--ink);
+      font-family: "Spline Sans", Arial, sans-serif;
+    }
+
+    body { display: grid; place-items: start center; padding: 28px 0; }
+
+    .sheet {
+      position: relative;
+      width: 8.5in;
+      height: 11in;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+      padding: .42in .48in .34in;
+      background:
+        linear-gradient(rgba(97,91,101,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(97,91,101,.035) 1px, transparent 1px),
+        var(--cream);
+      background-size: .26in .26in, .26in .26in, auto;
+      box-shadow: 0 18px 60px rgba(19,18,22,.18);
+    }
+
+    .print-rail {
+      position: absolute;
+      z-index: 5;
+      left: .28in;
+      top: .3in;
+      bottom: .3in;
+      width: .055in;
+      height: calc(100% - .6in);
+      pointer-events: none;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: 1fr 1.48in;
+      gap: .35in;
+      align-items: start;
+      padding-bottom: .22in;
+      border-bottom: 1px solid var(--cream-line);
+    }
+
+    .eyebrow, .card-label, .mission-id, .footer-label {
+      font-family: "Spline Sans Mono", monospace;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow { margin-bottom: .09in; color: var(--purple-dark); font-size: 9pt; }
+    h1 { margin: 0; font: 600 32pt/.9 "Clash Grotesk", sans-serif; letter-spacing: -.025em; }
+    .subtitle { margin: .12in 0 0; color: var(--mauve); font-size: 10.5pt; line-height: 1.35; }
+    .brand { display: grid; justify-items: end; gap: .16in; }
+    .brand img { display: block; width: 1.36in; filter: brightness(0); }
+    .mission-id { color: var(--mauve); font-size: 7.5pt; }
+
+    .canvas {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: 1.08in repeat(3, 1.62in);
+      gap: .13in;
+      align-content: center;
+      padding: .2in 0 .16in;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: .16in .19in .13in;
+      border: 1px solid var(--cream-line);
+      border-radius: .12in;
+      background: rgba(247,242,234,.94);
+    }
+
+    .card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--purple-light); }
+
+    .card.signal {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.62in 1fr;
+      gap: .22in;
+      align-items: center;
+      border-color: var(--purple);
+      background: var(--cream-panel);
+    }
+
+    .card.signal::before { background: var(--purple); }
+    .card-head { display: flex; align-items: baseline; justify-content: space-between; gap: .12in; }
+    .card-label { color: var(--purple-dark); font-size: 8pt; }
+    .card-number { color: var(--mauve-light); font: 500 7.5pt/1 "Spline Sans Mono", monospace; }
+    .question { margin: .055in 0 .07in; color: var(--ink-soft); font-size: 10pt; font-weight: 650; line-height: 1.2; }
+    .signal .question { margin: .045in 0 0; font-size: 12pt; }
+
+    .writing-lines {
+      height: .7in;
+      background: repeating-linear-gradient(to bottom, transparent 0, transparent .225in, rgba(97,91,101,.35) .225in, rgba(97,91,101,.35) calc(.225in + 1px));
+    }
+
+    .signal .writing-lines { height: .56in; }
+
+    .footer {
+      position: relative;
+      min-height: .78in;
+      display: grid;
+      grid-template-columns: 1fr 1.08in;
+      align-items: end;
+      padding: .13in 1.05in 0 0;
+      border-top: 1px solid var(--cream-line);
+    }
+
+    .footer-label { display: block; margin-bottom: .05in; color: var(--purple-dark); font-size: 7.5pt; }
+    .closing-question { margin: 0; font: 600 14pt/1.15 "Clash Grotesk", sans-serif; }
+
+    .acorn {
+      position: absolute;
+      z-index: 2;
+      right: .23in;
+      bottom: -.04in;
+      width: .94in;
+      height: 1.2in;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 5px 7px rgba(19,18,22,.18));
+    }
+
+    .acorn-caption {
+      position: absolute;
+      right: 1.08in;
+      bottom: .08in;
+      width: .72in;
+      color: var(--mauve);
+      font: 600 6.5pt/1.25 "Spline Sans Mono", monospace;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    @media print {
+      html, body { background: transparent; }
+      body { display: block; padding: 0; }
+      .sheet { background: #fff; box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .card, .card.signal { background: #fff; }
+    }
+
+    @media screen and (max-width: 850px) { body { display: block; padding: 0; overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <svg class="print-rail" viewBox="0 0 8 100" preserveAspectRatio="none" aria-hidden="true">
+      <rect width="8" height="100" rx="4" fill="#7B25C6"/>
+    </svg>
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">Mission simulation / field worksheet</div>
+        <h1>Mission Canvas</h1>
+        <p class="subtitle">Turn one technical signal into a request people can understand and discuss.</p>
+      </div>
+      <div class="brand">
+        <img src="assets/integrate-wordmark.svg" alt="Integrate">
+        <div class="mission-id">Lost in Translation</div>
+      </div>
+    </header>
+
+    <section class="canvas" aria-label="Mission Canvas worksheet">
+      <article class="card signal">
+        <div><div class="card-head"><span class="card-label">Signal</span><span class="card-number">01</span></div><p class="question">What have you noticed?</p></div>
+        <div class="writing-lines" aria-hidden="true"></div>
+      </article>
+      <article class="card"><div class="card-head"><span class="card-label">Product</span><span class="card-number">02</span></div><p class="question">What outcome are you offering?</p><div class="writing-lines" aria-hidden="true"></div></article>
+      <article class="card"><div class="card-head"><span class="card-label">Place</span><span class="card-number">03</span></div><p class="question">Who needs to understand it?</p><div class="writing-lines" aria-hidden="true"></div></article>
+      <article class="card"><div class="card-head"><span class="card-label">Price</span><span class="card-number">04</span></div><p class="question">What investment or tradeoff?</p><div class="writing-lines" aria-hidden="true"></div></article>
+      <article class="card"><div class="card-head"><span class="card-label">Promotion</span><span class="card-number">05</span></div><p class="question">Where should this appear again?</p><div class="writing-lines" aria-hidden="true"></div></article>
+      <article class="card"><div class="card-head"><span class="card-label">Evidence</span><span class="card-number">06</span></div><p class="question">What do you know or infer?</p><div class="writing-lines" aria-hidden="true"></div></article>
+      <article class="card"><div class="card-head"><span class="card-label">Ask</span><span class="card-number">07</span></div><p class="question">What should happen next?</p><div class="writing-lines" aria-hidden="true"></div></article>
+    </section>
+
+    <footer class="footer">
+      <div><span class="footer-label">Launch authorization</span><p class="closing-question">What mission are you asking people to approve?</p></div>
+      <span class="acorn-caption">Commander Acorn<br>Mission support</span>
+      <img class="acorn" src="assets/acorn-character-tablet.png" alt="Commander Acorn holding a tablet">
+    </footer>
+  </main>
+</body>
+</html>
