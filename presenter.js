@@ -2,7 +2,6 @@ const notes = window.SPEAKER_NOTES || [];
 const channel = 'BroadcastChannel' in window
   ? new BroadcastChannel('lost-in-translation-presenter')
   : null;
-let audiencePort = null;
 
 const elements = {
   connection: document.getElementById('connection'),
@@ -49,15 +48,6 @@ function sendCommand(action, detail = {}) {
     sentAt: Date.now(),
     commandId: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
   };
-  if (audiencePort) {
-    try {
-      audiencePort.postMessage(command);
-      return;
-    } catch (_) {
-      audiencePort = null;
-    }
-  }
-
   const directController = audienceController();
   if (directController) {
     directController.runCommand(command);
@@ -65,6 +55,11 @@ function sendCommand(action, detail = {}) {
     return;
   }
 
+  try {
+    window.opener?.postMessage(command, '*');
+  } catch (_) {
+    // BroadcastChannel and storage can still reach independently opened windows.
+  }
   channel?.postMessage(command);
   try {
     localStorage.setItem('lost-in-translation-command', JSON.stringify(command));
@@ -192,13 +187,9 @@ function resetClock() {
 
 channel?.addEventListener('message', (event) => acceptState(event.data));
 window.addEventListener('message', (event) => {
-  if (event.data?.type !== 'lost-in-translation-presenter-connect' || !event.ports[0]) return;
-
-  audiencePort?.close();
-  audiencePort = event.ports[0];
-  audiencePort.addEventListener('message', (portEvent) => acceptState(portEvent.data));
-  audiencePort.start();
-  sendCommand('request-state');
+  if (event.data?.type === 'state') {
+    acceptState(event.data);
+  }
 });
 window.addEventListener('storage', (event) => {
   if (event.key !== 'lost-in-translation-state' || !event.newValue) return;

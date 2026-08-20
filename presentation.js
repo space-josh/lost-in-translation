@@ -16,7 +16,6 @@ const syncChannel = !isPreview && 'BroadcastChannel' in window
   : null;
 const processedCommandIds = new Set();
 let presenterWindow = null;
-let presenterPort = null;
 
 function fitStage() {
   const scale = Math.max(0.01, Math.min(
@@ -52,9 +51,9 @@ function publishState() {
   if (isPreview) return;
   const currentState = state();
   try {
-    presenterPort?.postMessage(currentState);
+    presenterWindow?.postMessage(currentState, '*');
   } catch (_) {
-    presenterPort = null;
+    presenterWindow = null;
   }
   syncChannel?.postMessage(currentState);
   try {
@@ -145,29 +144,6 @@ function runCommand(command) {
 function openPresenter() {
   presenterWindow = window.open('presenter.html', 'lost-in-translation-presenter');
   presenterWindow?.focus();
-  connectPresenter(presenterWindow);
-}
-
-function connectPresenter(targetWindow) {
-  if (!targetWindow || targetWindow.closed || !('MessageChannel' in window)) return;
-
-  presenterPort?.close();
-  const connection = new MessageChannel();
-  presenterPort = connection.port1;
-  presenterPort.addEventListener('message', (event) => runCommand(event.data));
-  presenterPort.start();
-
-  try {
-    targetWindow.postMessage(
-      { type: 'lost-in-translation-presenter-connect' },
-      '*',
-      [connection.port2],
-    );
-    presenterPort.postMessage(state());
-  } catch (_) {
-    presenterPort.close();
-    presenterPort = null;
-  }
 }
 
 window.presentationController = {
@@ -186,9 +162,16 @@ if (isPreview) {
   });
 } else {
   window.addEventListener('message', (event) => {
-    if (event.data?.type !== 'lost-in-translation-presenter-ready') return;
-    presenterWindow = event.source;
-    connectPresenter(presenterWindow);
+    if (event.data?.type === 'lost-in-translation-presenter-ready') {
+      presenterWindow = event.source;
+      publishState();
+      return;
+    }
+    if (event.data?.type === 'command') {
+      if (presenterWindow && event.source !== presenterWindow) return;
+      if (!presenterWindow) presenterWindow = event.source;
+      runCommand(event.data);
+    }
   });
 
   syncChannel?.addEventListener('message', (event) => runCommand(event.data));
